@@ -27,7 +27,7 @@ public class snakeLadder {
 		System.out.println("Player 1 rolls the die");
 		System.out.println("Die = " + Die_num);
 
-		count = count + 1;  // Count how many times the Die was played
+		count = count + 1;  
 
 		if (total + Die_num <= 100) {
 			total = total + Die_num;
@@ -184,7 +184,7 @@ public class snakeLadder {
 
 		switch (check) {
 
-			// check not want to play or go to die
+			
 			case 0:
 				System.out.println("No play");
 				break;
