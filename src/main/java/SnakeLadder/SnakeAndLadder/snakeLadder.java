@@ -3,59 +3,109 @@ package SnakeLadder.SnakeAndLadder;
 import java.util.Random;
 
 public class snakeLadder {
+	static int total=0;
+	static int cal=0;
+	static int count=0;
 
-	static int position=0;
-	static int Die_Num;
-	static int check;
-	static int position1;
-	
+	//  use function  to roll the die
+	static void Roll() {
+		int min=1;
+		int max=6;
+		int Die_num = (int) Math.floor(Math.random()*(max-min)+min);
+
+		System.out.println("Die = "+Die_num);
+
+
+		if (total <= 100) {
+
+			total=total+Die_num; 
+			System.out.println("Player in the position = "+total);
+			switch (total) {
+				case 10:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 20:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 30:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 40:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 50:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 60:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 70:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 80:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 90:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 100:
+					System.out.println("Won the Game"); 
+					break;
+			}
+		}
+		else {
+			Roll();
+		}
+	}
+
+	static void checkPlayer(int check) {
+
+		switch (check) {
+
+			// check not want to play or go to die
+			case 0:
+				System.out.println("No play");
+				break;
+			case 1:
+				Roll();
+				break;
+			case 2:
+				Roll();
+				break;
+			
+		}
+	}
+
+
 	public static void main(String[] args) {
-		
-		System.out.println("Position : " + position);
-		Roll();
-		checkPlayer(check);
-		
-	}
-	
-		public static void Roll() {
-		Random r = new Random();
-		Die_Num = r.nextInt(6) + 1; // rolling a die, getting the number randomly
-		System.out.println("DieNumber: " + Die_Num);
-		checkPlayer(check);
 
-	}
-		
-				static void checkPlayer(int check) {
-					int position1;
-					String[] options = { "NoPlay", "Ladder", "Snake" };
-					Random r = new Random();
-					int random_option = r.nextInt(options.length);
-					System.out.println("check option : " + options[random_option]);
-			
-			
-			while(position==100){
-				position++;	
-			
-			switch (position) {
-			
-				case 0:
-					position=Die_Num+0;
-				System.out.println("Incase of No play, Position is at same stage : "+ position);
-					break;
-				case 1:
-					position=position+Die_Num;
-					System.out.println("Incase of Ladder, Position is : "+ position);
-					break;
-				case 2:
-					position=position-Die_Num;
-					System.out.println("Incase of Snake, Position is : "+ position);
-	
-			}
-			}
+		int player = 1;
+		int position = 0;
+		System.out.println("Player in the position = " + position);
+
+		while (total < 100) {  
+			int check = (int) Math.floor((Math.random() * 10) % 3);
+
+			checkPlayer(check);
 		}
-		}
-		
-		
-
-
+	}
+}
 
